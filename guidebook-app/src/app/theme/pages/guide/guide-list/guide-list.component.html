@@ -1,0 +1,64 @@
+<!-- Navigation-->
+
+
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a routerLink="/index">Guide List</a>
+        </li>
+        <li class="breadcrumb-item active">Blank Page</li>
+    </ol>
+    <div class="row">
+        <div class="col-12">
+            <h1>Guide List</h1>
+            <table class="table table-striped table-sm">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Fullname</th>
+                        <th>Address</th>
+                        <th>Processes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let guide of guides; let i = index">
+                        <td scope="row">{{(i + 1) + (guideSearchInfo.record_for_page * (guideSearchInfo.page_number - 1))}}</td>
+                        <td>{{guide.fullname}}</td>
+                        <td>{{guide.address}}</td>
+                        <td>
+                            <a class="btn btn-sm btn-info" routerLink="/guide/save/{{guide._id}}">Edit</a>
+                            <button class="btn btn-sm btn-danger" (click)="openModal(template,adres._id);">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot [hidden]="totalRecord <= 0">
+                    <tr>
+                        <td colspan="4" class="text-center">
+                            <ngb-pagination class="mx-auto" [(page)]="page" (pageChange)="onPager($event)" [collectionSize]="totalRecord" [pageSize]="guideSearchInfo.record_for_page"
+                                [maxSize]="10" [boundaryLinks]="true" aria-label="Default pagination"></ngb-pagination>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid-->
+<!-- /.content-wrapper-->
+
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Delete Confirm</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        Are you sure that you want to remove guide?
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="deleteGuide(selectedGuideId)">Yes</button>
+        <button type="button" class="btn btn-secondary" (click)="close()">No</button>
+    </div>
+</ng-template>
