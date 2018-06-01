@@ -17,10 +17,10 @@ const routes: Routes = [
                 "path": "guide\/list",
                 "loadChildren": ".\/pages\/guide\/guide-list\/guide-list.module#GuideListModule"
             },
-           /* {
-                "path": "adres\/kayit\/:id",
-                "loadChildren": ".\/pages\/adres\/adres-kayit\/adres-kayit.module#AdresKayitModule"
-            },*/
+            {
+                "path": "guide\/insert\/:id",
+                "loadChildren": ".\/pages\/guide\/guide-insert\/guide-insert.module#GuideInsertModule"
+            },
             {
                 "path": "404",
                 "loadChildren": ".\/pages\/default\/not-found\/not-found.module#NotFoundModule"

@@ -37,7 +37,7 @@ export class GuideListComponent implements OnInit {
     ngOnInit() {
         this.guideSearchInfo.user_id = this.userInfo._id;
 
-        //this.getGuides();
+        this.getGuides();
     }
 
     getGuides(): void {

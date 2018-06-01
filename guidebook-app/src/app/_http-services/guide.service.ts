@@ -25,11 +25,15 @@ export class GuideService {
 
     header = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': '', 'token': this.cur.token });
 
-    setAdres(guide: Guide): Observable<ResultInfo> {
+    insertGuide(guide: Guide): Observable<ResultInfo> {
         return this.http.post<ResultInfo>(this._postUrl, guide, {
             headers: this.header
         });
     };
+
+    putGuide(_id: string, guide: Guide): Observable<ResultInfo> {
+        return this.http.put<ResultInfo>(this._postUrl + "/" + _id, guide, { headers: this.header });
+    }
 
     getUsersGuides(guideSearchInfo: GuideSearchInfo): Observable<ResultInfo> {
         /*let Params = new HttpParams();
@@ -56,9 +60,9 @@ export class GuideService {
     };
 
 
-    deleteGuideById(adresId: string): Observable<ResultInfo> {
+    deleteGuideById(guideId: string): Observable<ResultInfo> {
 
-        return this.http.delete<ResultInfo>(this._postUrl + "/" + adresId, { headers: this.header });
+        return this.http.delete<ResultInfo>(this._postUrl + "/" + guideId, { headers: this.header });
     }
 
     toHttpParams(params: any): HttpParams {

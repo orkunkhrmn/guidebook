@@ -27,8 +27,8 @@
                         <td>{{guide.fullname}}</td>
                         <td>{{guide.address}}</td>
                         <td>
-                            <a class="btn btn-sm btn-info" routerLink="/guide/save/{{guide._id}}">Edit</a>
-                            <button class="btn btn-sm btn-danger" (click)="openModal(template,adres._id);">Delete</button>
+                            <a class="btn btn-sm btn-info" routerLink="/guide/insert/{{guide._id}}">Edit</a>
+                            <button class="btn btn-sm btn-danger" (click)="openModal(template,guide._id);">Delete</button>
                         </td>
                     </tr>
                 </tbody>

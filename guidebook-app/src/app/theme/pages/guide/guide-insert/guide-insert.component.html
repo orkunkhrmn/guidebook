@@ -1,0 +1,37 @@
+<!-- Navigation-->
+
+
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a routerLink="/index">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Blank Page</li>
+    </ol>
+    <div class="row">
+        <div class="col-12">
+            <h1>Guide</h1>
+            <h4 class="mb-3">Guide info</h4>
+            <form #guideForm="ngForm" class="needs-validation">
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label for="txtFullname">Fullname</label>
+                        <input type="text" id="txtFullname" name="txtFullname" class="form-control" placeholder="Fullname" [(ngModel)]="guideInfo.fullname"
+                            #txtFullname="ngModel" required autofocus>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="txtAddress">Address</label>
+                    <input type="text" id="txtAddress" name="txtAddress" class="form-control" placeholder="Address" [(ngModel)]="guideInfo.address"
+                        #txtAddress="ngModel" required>
+                </div>
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!guideForm.form.valid" (click)="setGuide(guideForm);">SAVE</button>
+                <button class="btn btn-info btn-lg btn-block" type="submit" (click)="goBack();">BACK</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid-->
+<!-- /.content-wrapper-->
